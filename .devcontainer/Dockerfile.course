@@ -1,0 +1,9 @@
+FROM debian:bookworm-slim
+
+# Python 3.11 for recording, plus the C/RISC-V tools used by the chapter Makefiles.
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    bash build-essential ca-certificates git python3 tmux \
+    gcc-riscv64-unknown-elf binutils-riscv64-unknown-elf gdb-multiarch \
+    qemu-system-misc \
+    && ln -s /usr/bin/gdb-multiarch /usr/local/bin/riscv64-unknown-elf-gdb \
+    && rm -rf /var/lib/apt/lists/*

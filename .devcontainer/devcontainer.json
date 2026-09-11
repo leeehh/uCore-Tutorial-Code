@@ -1,0 +1,20 @@
+{
+  "name": "uCore-Tutorial-Code",
+  "build": { "dockerfile": "Dockerfile.course", "context": ".." },
+  "postCreateCommand": "sh .course-monitor/setup.sh",
+  "postAttachCommand": "git course install",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shellIntegration.enabled": true,
+        "editor.formatOnSave": true,
+        "C_Cpp.default.compilerPath": "/usr/bin/riscv64-unknown-elf-gcc"
+      },
+      "extensions": [
+        "ms-vscode.cpptools",
+        "usernamehw.errorlens"
+      ]
+    }
+  }
+}

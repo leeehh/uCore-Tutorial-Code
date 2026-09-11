@@ -2,6 +2,14 @@
 
 Course project for THU-OS.
 
+课程过程记录：在 `main` 分支的仓库根目录运行 `python3 course.py`，安装 VS Code 记录插件并打开实验工作区与实时日志。安装要求、日志位置和日常命令见 [实验过程记录说明](docs/course-recording.md)。
+
+AI 过程记录：运行 `./scripts/setup-agent-plugins.sh auto`，也可指定 `codex`、`claude`、`cursor` 或 `vscode`。会话以 JSONL 保存到 `.ai/agent-sessions/<agent>/`，文件名包含日期时间。请同学们不要改动或删除这些记录，提交时会检查这些记录作为考核参考。详细设置见 [AI 会话归档说明](docs/agent-session-archive.md)。
+
+**Codex 首次使用需要信任 hooks**：安装后，在实验仓库根目录运行 `codex`，输入 `/hooks`，找到 `ucore-session-archive` 的 `Stop` 和 `SessionEnd`，分别审阅并选择 **Trust（信任）**。信任后才会自动归档。使用 VS Code Codex 的同学还需重载窗口并新建会话；更新插件后，如提示 hooks 发生变化，请重新审阅并信任。
+
+工具只在 `main` 分发；安装一次后，切换到 `ch1`–`ch8` 仍会记录。实验分支可运行 `git course logs` 查看日志，运行 `git agent-plugins auto` 再次配置 AI 归档。迁移来源和验证方式见 [记录工具功能说明](docs/course-monitor-report.md)。
+
 对标 [rCore-Tutorial-v3](https://github.com/rcore-os/rCore-Tutorial-v3/) 的 C 版本代码。
 
 主要参考 [xv6-riscv](https://github.com/mit-pdos/xv6-riscv), [uCore-SMP](https://github.com/TianhuaTao/uCore-SMP)。
@@ -10,4 +18,4 @@ Course project for THU-OS.
 
 实验在线文档[uCore-Tutorial-Guide](https://learningos.cn/uCore-Tutorial-Guide/)。
 
-注：为了兼容清华 Git 的需求、避免同学在主分支写代码、明确主分支的功能性，特意单独建了仅包含 README 与 LICENSE 的 master 分支，完成课程实验时请在 clone 仓库后先 push master 分支到清华 Git，然后切到自己开发所需的分支进行后续操作。
+注：主分支 `main` 用于分发课程说明与记录工具，实验代码位于章节分支。完成课程实验时，请在 clone 仓库后先 push `main` 分支到清华 Git，并在 `main` 完成记录配置，然后切到自己开发所需的章节分支进行后续操作。
